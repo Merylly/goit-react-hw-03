@@ -9,6 +9,7 @@ const contactsSchema = Yup.object().shape({
     .max(50, "Too long!"),
   number: Yup.string()
     .required("This field is required!")
+    .matches(/^[0-9]+$/, "Numbers only!")
     .min(3, "Too short!")
     .max(50, "Too long!"),
 });
@@ -45,7 +46,7 @@ const ContactForm = ({ onAddContact }) => {
           <p className={css.formTitle}>Number</p>
           <Field
             className={css.formInput}
-            type="number"
+            type="text"
             name="number"
             placeholder="655-17-79"
           />
